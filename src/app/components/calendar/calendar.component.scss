@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  td, th {
+    border: 1px solid black;
+    border-radius: 0.7rem;
+    padding: 0.5rem 1rem;
+
+  }
+  td {
+    text-align: center;
+    transition: all 0.3s ;
+    &.disabled{
+      opacity: 0.5;
+    }
+    &:hover:not(.disabled) {
+      background-color: #EEEEEE;
+      cursor: pointer;
+    }
+  }
+  .active {
+    color: var(--main-color);
+    font-weight: 700;
+  }
+  .selected {
+    color: cornflowerblue;
+  }
+}

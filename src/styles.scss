@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --main-color: #DC3545;
+  --darck-color: #333333;
+  --light-color: #F4F4F4;
+}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Mulish&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #FFFFFF;
+  color: #333333;
+}
+a{
+  color: var(--main-color);
+  text-decoration: none;
+
+  &:hover{
+    color: #666666;
+  }
+}
+ul{
+  list-style: none;
+}
+input {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #CCCCCC;
+  outline: none;
+  margin: 0px 0px 0.5rem 0px;
+}
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+table th {
+  background-color: var(--light-color);
+}
+.btn{
+  display: inline-block;
+  background-color: var(--light-color);
+  color: #333333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin: 0px 0.5rem 0px 0px;
+  transition: opacity 0.3s;
+  outline: none;
+
+  &:disabled{
+    background-color: var(--darck-color);
+    color: #FFFFFF;
+    cursor: not-allowed;
+  }
+  &:hover:not(:disabled){
+    opacity: 0.8;
+  }
+}
+.btn-block{
+  display: block;
+  width: 100%;
+}
+.btn-primary{
+  background-color: var(--main-color);
+  color: #FFFFFF;
+}
+.text-center{
+  text-align: center;
+}

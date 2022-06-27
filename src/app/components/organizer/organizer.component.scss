@@ -1,0 +1,15 @@
+section{
+  border: 1px solid black;
+  padding: 1rem;
+  header{
+    margin-bottom: 1rem;
+  }
+}
+.task{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  margin-bottom: 0.5rem;
+}
