@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateService } from 'src/app/components/services/date.service';
 import { TaskService } from '../services/task.service';
 import { Task } from '../models/task';
 import { switchMap } from 'rxjs';
-import * as moment from 'moment';
+import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 
 @Component({
@@ -13,7 +13,7 @@ import * as moment from 'moment';
   styleUrls: ['./organizer.component.scss']
 })
 export class OrganizerComponent implements OnInit {
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   tasks:Task[]= [];
   constructor(public dateService:DateService, private taskServise:TaskService) { }
 
@@ -24,8 +24,8 @@ export class OrganizerComponent implements OnInit {
         this.tasks = tasks
       })
 
-    this.form = new FormGroup({
-      title: new FormControl('', Validators.required)
+    this.form = new UntypedFormGroup({
+      title: new UntypedFormControl('', Validators.required)
     })
   }
   submit() {
@@ -43,5 +43,8 @@ export class OrganizerComponent implements OnInit {
     this.taskServise.delete(task).subscribe(() => {
       this.tasks = this.tasks.filter(t => t.id !== task.id);
     }, err => console.error(err))
+  }
+  drop(event: CdkDragDrop<Task[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 }

@@ -7,6 +7,10 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { MonthComponent } from './components/month/month.component';
 import { OrganizerComponent } from './components/organizer/organizer.component';
 import { MomentPipe } from './components/pipes/moment.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatNativeDateModule} from '@angular/material/core';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { MomentPipe } from './components/pipes/moment.pipe';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DragDropModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

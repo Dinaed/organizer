@@ -4,8 +4,8 @@
     <hr>
   </header>
   <main>
-    <ul *ngIf="tasks.length; else noTasks">
-      <li class="task" *ngFor="let task of tasks, let i = index">
+    <ul *ngIf="tasks.length; else noTasks" (cdkDropListDropped)="drop($event)">
+      <li class="task" *ngFor="let task of tasks, let i = index" cdkDrag>
         <span><strong>{{i+1}} </strong>{{task.title}}</span>
         <button class="btn btn-primary" (click)="removeTask(task)">Delete</button>
       </li>
