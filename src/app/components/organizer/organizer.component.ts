@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { DateService } from 'src/app/components/services/date.service';
 import { TaskService } from '../services/task.service';
 import { Task } from '../models/task';
 import { switchMap } from 'rxjs';
-import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 
 @Component({
@@ -15,12 +15,13 @@ import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class OrganizerComponent implements OnInit {
   form!: UntypedFormGroup;
   tasks:Task[]= [];
+  
+    
   constructor(public dateService:DateService, private taskServise:TaskService) { }
 
   ngOnInit() {
     this.dateService.date.pipe(
       switchMap((value) => this.taskServise.download(value))).subscribe((tasks) => {
-        console.log(tasks);
         this.tasks = tasks
       })
 

@@ -27,7 +27,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     HttpClientModule,
     BrowserAnimationsModule,
     DragDropModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
